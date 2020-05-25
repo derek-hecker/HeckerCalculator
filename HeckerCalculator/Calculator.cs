@@ -31,11 +31,6 @@ namespace HeckerCalculator
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button11_Click(object sender, EventArgs e)
         {
 
