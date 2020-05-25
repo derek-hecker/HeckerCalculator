@@ -63,6 +63,7 @@
             this.btnSQRT.TabIndex = 0;
             this.btnSQRT.Text = "Sqrt";
             this.btnSQRT.UseVisualStyleBackColor = true;
+            this.btnSQRT.Click += new System.EventHandler(this.btnSQRT_Click);
             // 
             // btn1OverX
             // 
@@ -90,6 +91,7 @@
             this.btnXsquared.TabIndex = 3;
             this.btnXsquared.Text = "x^2";
             this.btnXsquared.UseVisualStyleBackColor = true;
+            this.btnXsquared.Click += new System.EventHandler(this.btnXsquared_Click);
             // 
             // btnC
             // 
@@ -135,6 +137,7 @@
             this.btnN8.TabIndex = 11;
             this.btnN8.Text = "8";
             this.btnN8.UseVisualStyleBackColor = true;
+            this.btnN8.Click += new System.EventHandler(this.btnN8_Click);
             // 
             // btnN9
             // 
@@ -174,6 +177,7 @@
             this.btnN5.TabIndex = 15;
             this.btnN5.Text = "5";
             this.btnN5.UseVisualStyleBackColor = true;
+            this.btnN5.Click += new System.EventHandler(this.btnN5_Click);
             // 
             // btnN6
             // 
@@ -183,6 +187,7 @@
             this.btnN6.TabIndex = 14;
             this.btnN6.Text = "6";
             this.btnN6.UseVisualStyleBackColor = true;
+            this.btnN6.Click += new System.EventHandler(this.btnN6_Click);
             // 
             // btnMinus
             // 
@@ -201,6 +206,7 @@
             this.btnN4.TabIndex = 12;
             this.btnN4.Text = "4";
             this.btnN4.UseVisualStyleBackColor = true;
+            this.btnN4.Click += new System.EventHandler(this.btnN4_Click);
             // 
             // btnN2
             // 
@@ -210,6 +216,8 @@
             this.btnN2.TabIndex = 19;
             this.btnN2.Text = "2";
             this.btnN2.UseVisualStyleBackColor = true;
+            this.btnN2.Click += new System.EventHandler(this.btnN2_Click);
+            this.btnN2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnN2_KeyPress);
             // 
             // btnN3
             // 
@@ -219,6 +227,7 @@
             this.btnN3.TabIndex = 18;
             this.btnN3.Text = "3";
             this.btnN3.UseVisualStyleBackColor = true;
+            this.btnN3.Click += new System.EventHandler(this.btnN3_Click);
             // 
             // btnPlus
             // 
@@ -237,6 +246,7 @@
             this.btnN1.TabIndex = 16;
             this.btnN1.Text = "1";
             this.btnN1.UseVisualStyleBackColor = true;
+            this.btnN1.Click += new System.EventHandler(this.btnN1_Click);
             // 
             // btnN0
             // 
@@ -246,6 +256,7 @@
             this.btnN0.TabIndex = 23;
             this.btnN0.Text = "0";
             this.btnN0.UseVisualStyleBackColor = true;
+            this.btnN0.Click += new System.EventHandler(this.btnN0_Click);
             // 
             // btnDecimal
             // 
