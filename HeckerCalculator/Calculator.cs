@@ -74,7 +74,10 @@ namespace HeckerCalculator
         //Operatins that automatically hit equals
         private void btnSQRT_Click(object sender, EventArgs e)
         {
-
+            double num = 0;
+            num = Convert.ToDouble(textBox1.Text);
+            num = Math.Sqrt(num);
+            textBox1.Text = num.ToString();
         }
 
         private void btnXsquared_Click(object sender, EventArgs e)
@@ -183,6 +186,9 @@ namespace HeckerCalculator
                 } else if (opToDo == '/')
                 {
                     Result = first / second;
+                } else if (opToDo == '^')
+                {
+                   Result = Math.Pow(first, second);
                 }
                 textBox1.Text = Result.ToString();
             }
@@ -191,6 +197,24 @@ namespace HeckerCalculator
         private void btnC_Click(object sender, EventArgs e)
         {
             textBox1.Text = "0";
+        }
+
+        private void btn1OverX_Click(object sender, EventArgs e)
+        {
+            double num = 0;
+            num = Convert.ToDouble(textBox1.Text);
+            num = 1 / num;
+            textBox1.Text = num.ToString();
+        }
+
+        private void btnXToTheY_Click(object sender, EventArgs e)
+        {
+            displayNumberCharPress('^');
+        }
+
+        private void btnPlusSlashMinus_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "-" + textBox1.Text;
         }
     }
 }

@@ -73,6 +73,7 @@
             this.btn1OverX.TabIndex = 1;
             this.btn1OverX.Text = "1/x";
             this.btn1OverX.UseVisualStyleBackColor = true;
+            this.btn1OverX.Click += new System.EventHandler(this.btn1OverX_Click);
             // 
             // btnXToTheY
             // 
@@ -82,6 +83,7 @@
             this.btnXToTheY.TabIndex = 2;
             this.btnXToTheY.Text = "x^y";
             this.btnXToTheY.UseVisualStyleBackColor = true;
+            this.btnXToTheY.Click += new System.EventHandler(this.btnXToTheY_Click);
             // 
             // btnXsquared
             // 
@@ -289,6 +291,7 @@
             this.btnPlusSlashMinus.TabIndex = 20;
             this.btnPlusSlashMinus.Text = "+/-";
             this.btnPlusSlashMinus.UseVisualStyleBackColor = true;
+            this.btnPlusSlashMinus.Click += new System.EventHandler(this.btnPlusSlashMinus_Click);
             // 
             // textBox1
             // 
