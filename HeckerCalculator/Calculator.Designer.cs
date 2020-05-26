@@ -151,7 +151,7 @@
             this.btnN9.Click += new System.EventHandler(this.button10_Click);
             // 
             // btnMultiply
-            // 
+            //   
             this.btnMultiply.Location = new System.Drawing.Point(244, 134);
             this.btnMultiply.Name = "btnMultiply";
             this.btnMultiply.Size = new System.Drawing.Size(63, 23);
