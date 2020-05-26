@@ -17,6 +17,9 @@ namespace HeckerCalculator
         {
             InitializeComponent();
         }
+        char lastChar = '\0';
+        string allOps = "";
+        //Function to display the number that was clicked on
         private void displayNumberbtnPress(int nmbr)
         {
             if (nmbr >= 0 && nmbr < 10)
@@ -27,14 +30,44 @@ namespace HeckerCalculator
                 }else
                 {
                     textBox1.Text = textBox1.Text + nmbr.ToString();
+                    //int size = textBox1.Text.Length;
                 }
             }
         }
+        //Function to display the math operation that takes place
+        private void displayNumberCharPress(char operation)
+        {
+            if (textBox1.Text == "0" && textBox1.Text != null)
+            {
+                textBox1.Text = operation.ToString();
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + operation.ToString();
+            }
+        }
 
+        //Operation Text Input
+            //Multiplication
         private void button11_Click(object sender, EventArgs e)
         {
-
+            displayNumberCharPress('*');
         }
+        private void btnDivide_Click(object sender, EventArgs e)
+        {
+            displayNumberCharPress('/');
+        }
+        private void btnPlus_Click(object sender, EventArgs e)
+        {
+            displayNumberCharPress('+');
+        }
+
+        private void btnMinus_Click(object sender, EventArgs e)
+        {
+            displayNumberCharPress('-');
+        }
+        
+        //Operatins that automatically hit equals
         private void btnSQRT_Click(object sender, EventArgs e)
         {
 

@@ -119,6 +119,7 @@
             this.btnDivide.TabIndex = 5;
             this.btnDivide.Text = "/";
             this.btnDivide.UseVisualStyleBackColor = true;
+            this.btnDivide.Click += new System.EventHandler(this.btnDivide_Click);
             // 
             // btnCE
             // 
@@ -197,6 +198,7 @@
             this.btnMinus.TabIndex = 13;
             this.btnMinus.Text = "-";
             this.btnMinus.UseVisualStyleBackColor = true;
+            this.btnMinus.Click += new System.EventHandler(this.btnMinus_Click);
             // 
             // btnN4
             // 
@@ -237,6 +239,7 @@
             this.btnPlus.TabIndex = 17;
             this.btnPlus.Text = "+";
             this.btnPlus.UseVisualStyleBackColor = true;
+            this.btnPlus.Click += new System.EventHandler(this.btnPlus_Click);
             // 
             // btnN1
             // 
@@ -325,6 +328,7 @@
             this.Controls.Add(this.btnXToTheY);
             this.Controls.Add(this.btn1OverX);
             this.Controls.Add(this.btnSQRT);
+            this.KeyPreview = true;
             this.Name = "Calculator";
             this.Text = "C# Calculator";
             this.ResumeLayout(false);
