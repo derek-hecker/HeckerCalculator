@@ -101,6 +101,7 @@
             this.btnC.TabIndex = 7;
             this.btnC.Text = "C";
             this.btnC.UseVisualStyleBackColor = true;
+            this.btnC.Click += new System.EventHandler(this.btnC_Click);
             // 
             // btnDEL
             // 
@@ -151,7 +152,7 @@
             this.btnN9.Click += new System.EventHandler(this.button10_Click);
             // 
             // btnMultiply
-            //   
+            // 
             this.btnMultiply.Location = new System.Drawing.Point(244, 134);
             this.btnMultiply.Name = "btnMultiply";
             this.btnMultiply.Size = new System.Drawing.Size(63, 23);
@@ -278,6 +279,7 @@
             this.btnEquals.TabIndex = 21;
             this.btnEquals.Text = "=";
             this.btnEquals.UseVisualStyleBackColor = true;
+            this.btnEquals.Click += new System.EventHandler(this.btnEquals_Click);
             // 
             // btnPlusSlashMinus
             // 

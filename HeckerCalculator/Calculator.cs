@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,8 +18,10 @@ namespace HeckerCalculator
         {
             InitializeComponent();
         }
-        char lastChar = '\0';
-        string allOps = "";
+        char opToDo = '\0';
+        double firstNumber = 0;
+        double secondNumber = 0;
+        string history = "";
         //Function to display the number that was clicked on
         private void displayNumberbtnPress(int nmbr)
         {
@@ -45,6 +48,7 @@ namespace HeckerCalculator
             {
                 textBox1.Text = textBox1.Text + operation.ToString();
             }
+            opToDo = operation;
         }
 
         //Operation Text Input
@@ -75,7 +79,10 @@ namespace HeckerCalculator
 
         private void btnXsquared_Click(object sender, EventArgs e)
         {
-
+            double num = 0;
+            num = Convert.ToDouble(textBox1.Text);
+            num = num * num;
+            textBox1.Text = num.ToString();
         }
 
 
@@ -133,5 +140,57 @@ namespace HeckerCalculator
             displayNumberbtnPress(9);
         }
 
+        private void btnEquals_Click(object sender, EventArgs e)
+        {
+            history += textBox1.Text;
+            string firstNum = "0";
+            string secondNum = "0";
+            double first;
+            double second; 
+            double Result = 0;
+            int n = 0; 
+            for (int i = 0; i < textBox1.Text.Length; i++)
+            {
+                if (textBox1.Text[i] == opToDo)
+                {
+                    n++;
+                    continue;
+                } else if (n == 0)
+                {
+                    firstNum += textBox1.Text[i];
+                }
+                else
+                {
+                    secondNum += textBox1.Text[i];
+                }
+            }
+            first = Convert.ToDouble(firstNum);
+            second = Convert.ToDouble(secondNum);
+            if (opToDo == '/' && second == 0)
+            {
+                textBox1.Text = "Cannot Divide by Zero";
+            } else
+            {
+                if (opToDo == '+')
+                {
+                    Result = first + second;
+                } else if (opToDo == '-')
+                {
+                    Result = first - second;
+                } else if (opToDo == '*')
+                {
+                    Result = first * second;
+                } else if (opToDo == '/')
+                {
+                    Result = first / second;
+                }
+                textBox1.Text = Result.ToString();
+            }
+        }
+
+        private void btnC_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "0";
+        }
     }
 }
