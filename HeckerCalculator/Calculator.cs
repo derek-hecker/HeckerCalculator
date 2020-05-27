@@ -164,26 +164,38 @@ namespace HeckerCalculator
             string firstNum = "0";
             string secondNum = "0";
             double first;
-            double second; 
-            double Result = 0;
-            int n = 0; 
-            for (int i = 0; i < textBox1.Text.Length; i++)
+            double second;
+            double Result;
+            if (opToDo == '^')
             {
-                if (textBox1.Text[i] == opToDo)
+                int n = 0;
+
+                for (int i = 0; i < textBox1.Text.Length; i++)
                 {
-                    n++;
-                    continue;
-                } else if (n == 0)
-                {
-                    firstNum += textBox1.Text[i];
+                    if (textBox1.Text[i] == opToDo)
+                    {
+                        n++;
+                        continue;
+                    }
+                    else if (n == 0)
+                    {
+                        firstNum += textBox1.Text[i];
+                    }
+                    else
+                    {
+                        secondNum += textBox1.Text[i];
+                    }
                 }
-                else
-                {
-                    secondNum += textBox1.Text[i];
-                }
+                first = Convert.ToDouble(firstNum);
+                second = Convert.ToDouble(secondNum);
+                Result = Math.Pow(first, second);
+            } else
+            {
+                Result = Convert.ToDouble(new DataTable().Compute(textBox1.Text, null));
             }
-            first = Convert.ToDouble(firstNum);
-            second = Convert.ToDouble(secondNum);
+            
+
+            /*
             if (opToDo == '/' && second == 0)
             {
                 textBox1.Text = "Cannot Divide by Zero";
@@ -204,10 +216,11 @@ namespace HeckerCalculator
                 } else if (opToDo == '^')
                 {
                    Result = Math.Pow(first, second);
-                }
-                textBox1.Text = Result.ToString();
-                history += "=" + Result.ToString() + ", ";
-            }
+                }*/
+
+            textBox1.Text = Result.ToString();
+            history += "=" + Result.ToString() + ", ";
+        //}
         }
 
         private void btnC_Click(object sender, EventArgs e)
