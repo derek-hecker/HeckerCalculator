@@ -22,33 +22,42 @@ namespace HeckerCalculator
         double firstNumber = 0;
         double secondNumber = 0;
         string history = "";
+        bool opLastEntered = false;
         //Function to display the number that was clicked on
         private void displayNumberbtnPress(int nmbr)
         {
-            if (nmbr >= 0 && nmbr < 10)
-            {
-                if (textBox1.Text == "0" && textBox1.Text != null)
+                if (nmbr >= 0 && nmbr < 10)
                 {
-                    textBox1.Text = nmbr.ToString();
-                }else
-                {
-                    textBox1.Text = textBox1.Text + nmbr.ToString();
-                    //int size = textBox1.Text.Length;
+                    if (textBox1.Text == "0" && textBox1.Text != null)
+                    {
+                        textBox1.Text = nmbr.ToString();
+                    }
+                    else
+                    {
+                        textBox1.Text = textBox1.Text + nmbr.ToString();
+                        //int size = textBox1.Text.Length;
+                    }
+                opLastEntered = false;
                 }
-            }
+
         }
         //Function to display the math operation that takes place
         private void displayNumberCharPress(char operation)
         {
-            if (textBox1.Text == "0" && textBox1.Text != null)
+            if (!opLastEntered) 
             {
-                textBox1.Text = operation.ToString();
+                if (textBox1.Text == "0" && textBox1.Text != null)
+                {
+                    textBox1.Text = operation.ToString();
+                }
+                else
+                {
+                    textBox1.Text = textBox1.Text + operation.ToString();
+                }
+                opToDo = operation;
+                opLastEntered = true;
             }
-            else
-            {
-                textBox1.Text = textBox1.Text + operation.ToString();
-            }
-            opToDo = operation;
+
         }
 
         //Operation Text Input
