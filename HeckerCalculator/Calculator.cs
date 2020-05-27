@@ -160,67 +160,88 @@ namespace HeckerCalculator
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
-            history += textBox1.Text;
-            string firstNum = "0";
-            string secondNum = "0";
-            double first;
-            double second;
-            double Result;
-            if (opToDo == '^')
+            bool invalid = true;
+            string validChars = "0123456789*/-+.^";
+            foreach (char c in textBox1.Text)
             {
-                int n = 0;
-
-                for (int i = 0; i < textBox1.Text.Length; i++)
+                if (validChars.Contains(c))
                 {
-                    if (textBox1.Text[i] == opToDo)
-                    {
-                        n++;
-                        continue;
-                    }
-                    else if (n == 0)
-                    {
-                        firstNum += textBox1.Text[i];
-                    }
-                    else
-                    {
-                        secondNum += textBox1.Text[i];
-                    }
+                    invalid = false;
+                }else
+                {
+                    invalid = true;
+                    break;
                 }
-                first = Convert.ToDouble(firstNum);
-                second = Convert.ToDouble(secondNum);
-                Result = Math.Pow(first, second);
-            } else
-            {
-                Result = Convert.ToDouble(new DataTable().Compute(textBox1.Text, null));
             }
-            
-
-            /*
-            if (opToDo == '/' && second == 0)
+            if (invalid)
             {
-                textBox1.Text = "Cannot Divide by Zero";
+                textBox1.Text = "Invalid Input";
             } else
             {
-                if (opToDo == '+')
+                history += textBox1.Text;
+                string firstNum = "0";
+                string secondNum = "0";
+                double first;
+                double second;
+                double Result;
+                if (opToDo == '^')
                 {
-                    Result = first + second;
-                } else if (opToDo == '-')
-                {
-                    Result = first - second;
-                } else if (opToDo == '*')
-                {
-                    Result = first * second;
-                } else if (opToDo == '/')
-                {
-                    Result = first / second;
-                } else if (opToDo == '^')
-                {
-                   Result = Math.Pow(first, second);
-                }*/
+                    int n = 0;
 
-            textBox1.Text = Result.ToString();
-            history += "=" + Result.ToString() + ", ";
-        //}
+                    for (int i = 0; i < textBox1.Text.Length; i++)
+                    {
+                        if (textBox1.Text[i] == opToDo)
+                        {
+                            n++;
+                            continue;
+                        }
+                        else if (n == 0)
+                        {
+                            firstNum += textBox1.Text[i];
+                        }
+                        else
+                        {
+                            secondNum += textBox1.Text[i];
+                        }
+                    }
+                    first = Convert.ToDouble(firstNum);
+                    second = Convert.ToDouble(secondNum);
+                    Result = Math.Pow(first, second);
+                }
+                else
+                {
+                    Result = Convert.ToDouble(new DataTable().Compute(textBox1.Text, null));
+                }
+
+
+                /*
+                if (opToDo == '/' && second == 0)
+                {
+                    textBox1.Text = "Cannot Divide by Zero";
+                } else
+                {
+                    if (opToDo == '+')
+                    {
+                        Result = first + second;
+                    } else if (opToDo == '-')
+                    {
+                        Result = first - second;
+                    } else if (opToDo == '*')
+                    {
+                        Result = first * second;
+                    } else if (opToDo == '/')
+                    {
+                        Result = first / second;
+                    } else if (opToDo == '^')
+                    {
+                       Result = Math.Pow(first, second);
+                    }*/
+
+                textBox1.Text = Result.ToString();
+                history += "=" + Result.ToString() + ", ";
+                //}
+            }
+
         }
 
         private void btnC_Click(object sender, EventArgs e)
@@ -269,6 +290,11 @@ namespace HeckerCalculator
             {
                 textBox1.Text = textBox1.Text.TrimEnd(textBox1.Text[textBox1.Text.Length - 1]);
             }
+        }
+
+        private void btnDecimal_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += ".";
         }
     }
 }
