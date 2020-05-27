@@ -53,6 +53,8 @@
             this.btnEquals = new System.Windows.Forms.Button();
             this.btnPlusSlashMinus = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnHist = new System.Windows.Forms.Button();
+            this.textHistory = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnSQRT
@@ -113,6 +115,7 @@
             this.btnDEL.TabIndex = 6;
             this.btnDEL.Text = "DEL";
             this.btnDEL.UseVisualStyleBackColor = true;
+            this.btnDEL.Click += new System.EventHandler(this.btnDEL_Click);
             // 
             // btnDivide
             // 
@@ -132,6 +135,7 @@
             this.btnCE.TabIndex = 4;
             this.btnCE.Text = "CE";
             this.btnCE.UseVisualStyleBackColor = true;
+            this.btnCE.Click += new System.EventHandler(this.btnCE_Click);
             // 
             // btnN8
             // 
@@ -303,11 +307,31 @@
             this.textBox1.Text = "0";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // btnHist
+            // 
+            this.btnHist.Location = new System.Drawing.Point(223, 21);
+            this.btnHist.Name = "btnHist";
+            this.btnHist.Size = new System.Drawing.Size(84, 23);
+            this.btnHist.TabIndex = 25;
+            this.btnHist.Text = "Show History";
+            this.btnHist.UseVisualStyleBackColor = true;
+            this.btnHist.Click += new System.EventHandler(this.btnHist_Click);
+            // 
+            // textHistory
+            // 
+            this.textHistory.Location = new System.Drawing.Point(37, 24);
+            this.textHistory.Name = "textHistory";
+            this.textHistory.Size = new System.Drawing.Size(180, 20);
+            this.textHistory.TabIndex = 26;
+            this.textHistory.Visible = false;
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(347, 292);
+            this.Controls.Add(this.textHistory);
+            this.Controls.Add(this.btnHist);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnN0);
             this.Controls.Add(this.btnDecimal);
@@ -368,6 +392,8 @@
         private System.Windows.Forms.Button btnEquals;
         private System.Windows.Forms.Button btnPlusSlashMinus;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnHist;
+        private System.Windows.Forms.TextBox textHistory;
     }
 }
 

@@ -19,8 +19,6 @@ namespace HeckerCalculator
             InitializeComponent();
         }
         char opToDo = '\0';
-        double firstNumber = 0;
-        double secondNumber = 0;
         string history = "";
         bool opLastEntered = false;
         //Function to display the number that was clicked on
@@ -35,7 +33,6 @@ namespace HeckerCalculator
                     else
                     {
                         textBox1.Text = textBox1.Text + nmbr.ToString();
-                        //int size = textBox1.Text.Length;
                     }
                 opLastEntered = false;
                 }
@@ -85,8 +82,15 @@ namespace HeckerCalculator
         {
             double num = 0;
             num = Convert.ToDouble(textBox1.Text);
-            num = Math.Sqrt(num);
-            textBox1.Text = num.ToString();
+            if (num < 0)
+            {
+                textBox1.Text = "Can not take the square root of a negative";
+            } else
+            {
+                num = Math.Sqrt(num);
+                textBox1.Text = num.ToString();
+            }
+ 
         }
 
         private void btnXsquared_Click(object sender, EventArgs e)
@@ -94,7 +98,9 @@ namespace HeckerCalculator
             double num = 0;
             num = Convert.ToDouble(textBox1.Text);
             num = num * num;
+            history += textBox1.Text + "^2=";
             textBox1.Text = num.ToString();
+            history += textBox1.Text + ",";
         }
 
 
@@ -200,12 +206,16 @@ namespace HeckerCalculator
                    Result = Math.Pow(first, second);
                 }
                 textBox1.Text = Result.ToString();
+                history += "=" + Result.ToString() + ", ";
             }
         }
 
         private void btnC_Click(object sender, EventArgs e)
         {
             textBox1.Text = "0";
+            history = "";
+            textHistory.Text = "";
+
         }
 
         private void btn1OverX_Click(object sender, EventArgs e)
@@ -224,6 +234,28 @@ namespace HeckerCalculator
         private void btnPlusSlashMinus_Click(object sender, EventArgs e)
         {
             textBox1.Text = "-" + textBox1.Text;
+        }
+
+        private void btnHist_Click(object sender, EventArgs e)
+        {
+            textHistory.Visible = true;
+            textHistory.Text = history;
+        }
+
+        private void btnCE_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "0";
+        }
+
+        private void btnDEL_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length == 0)
+            {
+                textBox1.Text = textBox1.Text;
+            } else
+            {
+                textBox1.Text = textBox1.Text.TrimEnd(textBox1.Text[textBox1.Text.Length - 1]);
+            }
         }
     }
 }
