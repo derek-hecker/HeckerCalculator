@@ -21,6 +21,7 @@ namespace HeckerCalculator
         char opToDo = '\0';
         string history = "";
         bool opLastEntered = false;
+        string validChars = "0123456789*/-+.^";
         //Function to display the number that was clicked on
         private void displayNumberbtnPress(int nmbr)
         {
@@ -161,7 +162,7 @@ namespace HeckerCalculator
         private void btnEquals_Click(object sender, EventArgs e)
         {
             bool invalid = true;
-            string validChars = "0123456789*/-+.^";
+            
             foreach (char c in textBox1.Text)
             {
                 if (validChars.Contains(c))
@@ -212,34 +213,9 @@ namespace HeckerCalculator
                 {
                     Result = Convert.ToDouble(new DataTable().Compute(textBox1.Text, null));
                 }
-
-
-                /*
-                if (opToDo == '/' && second == 0)
-                {
-                    textBox1.Text = "Cannot Divide by Zero";
-                } else
-                {
-                    if (opToDo == '+')
-                    {
-                        Result = first + second;
-                    } else if (opToDo == '-')
-                    {
-                        Result = first - second;
-                    } else if (opToDo == '*')
-                    {
-                        Result = first * second;
-                    } else if (opToDo == '/')
-                    {
-                        Result = first / second;
-                    } else if (opToDo == '^')
-                    {
-                       Result = Math.Pow(first, second);
-                    }*/
-
                 textBox1.Text = Result.ToString();
                 history += "=" + Result.ToString() + ", ";
-                //}
+                btnHist.PerformClick();
             }
 
         }
@@ -295,6 +271,29 @@ namespace HeckerCalculator
         private void btnDecimal_Click(object sender, EventArgs e)
         {
             textBox1.Text += ".";
+        }
+
+        private void Calculator_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (validChars.Contains(e.KeyChar)){
+                if (textBox1.Text != "0")
+                {
+                    textBox1.Text += e.KeyChar.ToString();
+                }else
+                {
+                    textBox1.Text = e.KeyChar.ToString();
+                }
+
+            }
+        }
+
+        private void Calculator_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back)
+            {
+                btnDEL.PerformClick();
+                e.Handled = true;
+            }
         }
     }
 }

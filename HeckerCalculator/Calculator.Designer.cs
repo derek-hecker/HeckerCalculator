@@ -300,7 +300,6 @@
             // 
             // textBox1
             // 
-            this.textBox1.AcceptsReturn = true;
             this.textBox1.Location = new System.Drawing.Point(37, 50);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(270, 20);
@@ -361,6 +360,8 @@
             this.KeyPreview = true;
             this.Name = "Calculator";
             this.Text = "C# Calculator";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Calculator_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Calculator_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 
